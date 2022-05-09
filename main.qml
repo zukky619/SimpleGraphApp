@@ -12,23 +12,29 @@ Window {
         id: mainId
         anchors.fill: parent
 
-        Button {
-            anchors.top : mainId.top
-            anchors.horizontalCenter: mainId.horizontalCenter
-            id: buttonId
-            onClicked: {
-                dataStream.setupSocket(19001);
+        Column {
+            Button {
+                text: "Start"
+
+                id: buttonId
+                onClicked: {
+                    dataStream.setupSocket(19001);
+                }
             }
-        }
 
-        GraphView {
-            id: graphViewId
-            width: 600
-            height: 400
-            anchors.bottom: mainId.bottom
-            anchors.horizontalCenter: mainId.horizontalCenter
-            visible: true
-        }
+            GraphView {
+                id: graph1Id
+                graphIndex: 1
+            }
+            GraphView {
+                id: graph2Id
+                graphIndex: 2
+            }
+            GraphView {
+                id: graph3Id
+                graphIndex: 3
+            }
 
+        }
     }
 }
